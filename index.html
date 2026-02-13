@@ -1,53 +1,752 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="hy">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Natali Poghosyan | Psychologist</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Նատալի Պողոսյան — հոգեբան կանանց և աղջիկների համար</title>
+  <meta name="description" content="Նատալի Պողոսյան — հոգեբան կանանց և աղջիկների համար․ անհատական խորհրդատվություն, աջակցություն սթրեսի, անհանգստության, ինքնագնահատականի, հարաբերությունների և կյանքի փոփոխությունների փուլերում։" />
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f1ee;
-    color: #333;
-    text-align: center;
-}
+  <style>
+    :root{
+      --bg: #F7F5F2;
+      --card: #FFFFFF;
+      --text: #2F2F2F;
+      --muted: #6B6B6B;
+      --line: rgba(47,47,47,.12);
+      --accent: #7A7F74;      /* olive gray */
+      --accent2:#E6DFD3;      /* warm stone */
+      --accent3:#F5EFE6;      /* sand */
+      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
 
-header {
-    padding: 100px 20px;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans Armenian", "Noto Sans", sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, #ffffff 0%, var(--bg) 45%, var(--bg) 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
+    .nav{
+      position:sticky; top:0; z-index:20;
+      background: rgba(247,245,242,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+    }
+    .mark{
+      width:38px; height:38px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent3));
+      border: 1px solid var(--line);
+      display:grid; place-items:center;
+      font-weight:700;
+      color:var(--text);
+    }
+    .brand .name{
+      display:flex; flex-direction:column; line-height:1.15;
+    }
+    .brand .name strong{font-size:14px; letter-spacing:.2px}
+    .brand .name span{font-size:12px; color:var(--muted)}
+    .navlinks{
+      display:flex; gap:16px; align-items:center;
+      font-size:13px;
+    }
+    .navlinks a{
+      text-decoration:none;
+      color:rgba(47,47,47,.85);
+      padding:8px 10px;
+      border-radius: 12px;
+    }
+    .navlinks a:hover{background: rgba(122,127,116,.10)}
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: none;
+      text-decoration:none;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(122,127,116,.95), rgba(122,127,116,.78));
+      color:#fff;
+      border-color: rgba(122,127,116,.35);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0)}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:7px 10px;
+      border-radius: 999px;
+      background: rgba(122,127,116,.10);
+      border: 1px solid rgba(122,127,116,.18);
+      color: rgba(47,47,47,.9);
+      font-size:12px;
+    }
+    .hero{
+      padding:46px 0 26px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroMain{padding:26px}
+    .heroMain h1{
+      margin:12px 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing:-.3px;
+      line-height:1.15;
+    }
+    .heroMain p{
+      margin:0;
+      color: rgba(47,47,47,.82);
+      font-size: 15.5px;
+      max-width: 60ch;
+    }
+    .heroActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+      align-items:center;
+    }
+    .miniNote{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(230,223,211,.65), rgba(245,239,230,.85));
+      border: 1px solid rgba(47,47,47,.10);
+      color: rgba(47,47,47,.86);
+      font-size:13px;
+    }
+    .heroSide{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .profile{
+      padding:16px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(245,239,230,.75), rgba(255,255,255,.85));
+      border: 1px solid rgba(47,47,47,.10);
+    }
+    .profileTop{
+      display:flex; gap:12px; align-items:center;
+    }
+    .avatar{
+      width:56px; height:56px; border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent3));
+      border: 1px solid rgba(47,47,47,.12);
+      display:grid; place-items:center;
+      font-weight:800;
+      letter-spacing:.6px;
+    }
+    .profileTop strong{display:block; font-size:14px}
+    .profileTop span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
+    .kv{
+      margin-top:12px;
+      display:grid;
+      gap:10px;
+    }
+    .kvRow{
+      display:flex; justify-content:space-between; gap:10px;
+      font-size:13px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(47,47,47,.10);
+      background: rgba(255,255,255,.8);
+    }
+    .kvRow b{font-weight:600}
+    .kvRow a{text-decoration:none}
+    .section{
+      padding: 26px 0;
+    }
+    .section h2{
+      font-size: 22px;
+      margin: 0 0 10px;
+      letter-spacing:-.2px;
+    }
+    .section p.lead{
+      margin: 0 0 14px;
+      color: rgba(47,47,47,.82);
+      max-width: 85ch;
+      font-size: 14.8px;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .tile{
+      padding:16px;
+    }
+    .tile h3{
+      margin:0 0 8px;
+      font-size:15px;
+      letter-spacing:-.1px;
+    }
+    .tile p{
+      margin:0;
+      color: rgba(47,47,47,.78);
+      font-size:13.5px;
+    }
+    .list{
+      margin:0;
+      padding-left: 18px;
+      color: rgba(47,47,47,.82);
+      font-size: 13.5px;
+    }
+    .list li{margin:6px 0}
+    .badgeRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .softCard{
+      padding:16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.75);
+    }
+    .pricing{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:14px;
+    }
+    .priceCard{padding:18px}
+    .priceCard .top{
+      display:flex; justify-content:space-between; gap:12px; align-items:flex-start;
+    }
+    .priceCard .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(122,127,116,.10);
+      border: 1px solid rgba(122,127,116,.18);
+      white-space:nowrap;
+      color: rgba(47,47,47,.85);
+    }
+    .priceCard h3{margin:6px 0 8px; font-size:16px}
+    .price{
+      font-size:22px; font-weight:800; letter-spacing:-.3px; margin:10px 0 6px;
+    }
+    .muted{color:var(--muted)}
+    .small{font-size:12.5px; color:rgba(47,47,47,.74)}
+    .faq details{
+      background: rgba(255,255,255,.85);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: none;
+    }
+    .faq details + details{margin-top:10px}
+    .faq summary{
+      cursor:pointer;
+      font-weight:600;
+      font-size: 14px;
+      outline:none;
+    }
+    .faq p{margin:10px 0 0; color: rgba(47,47,47,.78); font-size:13.5px}
+    .footer{
+      padding: 26px 0 40px;
+      border-top: 1px solid var(--line);
+      margin-top: 18px;
+      color: rgba(47,47,47,.78);
+      font-size: 12.5px;
+    }
+    .footer .cols{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:14px;
+      align-items:start;
+    }
+    .footer a{text-decoration:none}
+    .noteBox{
+      padding:14px;
+      border-radius: 16px;
+      border:1px solid rgba(47,47,47,.10);
+      background: linear-gradient(135deg, rgba(245,239,230,.75), rgba(255,255,255,.85));
+    }
 
-h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
+    /* mobile */
+    @media (max-width: 960px){
+      .heroGrid{grid-template-columns: 1fr}
+      .grid3{grid-template-columns: 1fr}
+      .grid2{grid-template-columns: 1fr}
+      .pricing{grid-template-columns: 1fr}
+      .navlinks{display:none}
+      .footer .cols{grid-template-columns:1fr}
+    }
+  </style>
 
-p {
-    font-size: 18px;
-    max-width: 600px;
-    margin: auto;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 12px 25px;
-    background: #7a9e9f;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-}
-</style>
+  <!-- Basic structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Նատալի Պողոսյան",
+    "jobTitle":"Հոգեբան",
+    "email":"mailto:natali.poghosyan.1981@gmail.com",
+    "telephone":"+37494400089",
+    "url":"https://natalipoghosyan.github.io",
+    "knowsAbout":["Հոգեբանական խորհրդատվություն","Սթրես","Անհանգստություն","Ինքնագնահատական","Հարաբերություններ"]
+  }
+  </script>
 </head>
 
 <body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <div class="inner">
+        <a class="brand" href="#top" aria-label="Գլխավոր">
+          <div class="mark">NP</div>
+          <div class="name">
+            <strong>Նատալի Պողոսյան</strong>
+            <span>Հոգեբան՝ կանանց և աղջիկների համար</span>
+          </div>
+        </a>
 
-<header>
-    <h1>Natali Poghosyan</h1>
-    <p>Professional psychologist helping individuals find emotional balance and inner clarity.</p>
-    <a href="mailto:your@email.com" class="btn">Book a Session</a>
-</header>
+        <nav class="navlinks" aria-label="Կայքի նավիգացիա">
+          <a href="#services">Ծառայություններ</a>
+          <a href="#about">Իմ մասին</a>
+          <a href="#approach">Մոտեցում</a>
+          <a href="#faq">ՀՏՀ</a>
+          <a href="#contact">Կապ</a>
+        </nav>
 
+        <div class="cta">
+          <a class="btn" href="tel:+37494400089">📞 Զանգել</a>
+          <a class="btn primary" href="#contact">🗓️ Ամրագրել</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <section class="card heroMain" aria-label="Ներածություն">
+          <span class="pill">✨ Նուրբ, վստահելի և պրոֆեսիոնալ աջակցություն</span>
+          <h1>Կանանց և աղջիկների հոգեբանական աջակցություն՝ հստակություն, հանգստություն, ինքնավստահություն</h1>
+          <p>
+            Եթե հիմա ծանր է, խառն է կամ պարզապես ուզում ես քեզ ավելի լավ հասկանալ —
+            այստեղ դու ապահով տարածք ունես խոսելու, պարզելու և առաջ շարժվելու համար։
+          </p>
+
+          <div class="heroActions">
+            <a class="btn primary" href="#contact">Ամրագրել հանդիպում</a>
+            <a class="btn" href="#services">Տեսնել ծառայությունները</a>
+            <a class="btn" href="#faq">ՀՏՀ</a>
+          </div>
+
+          <div class="miniNote">
+            <b>🆓 Առաջին ծանոթացում-զրույց՝ անվճար (10–15 րոպե)</b><br>
+            Սա կօգնի հասկանալ՝ ճիշտ մասնագետն եմ արդյո՞ք քեզ համար, և ինչպես կարող ենք աշխատել։
+          </div>
+        </section>
+
+        <aside class="card heroSide" aria-label="Կոնտակտ և վստահության նշաններ">
+          <div class="profile">
+            <div class="profileTop">
+              <div class="avatar" aria-hidden="true">NP</div>
+              <div>
+                <strong>Նատալի Պողոսյան</strong>
+                <span>Հոգեբան • Երևան / օնլայն</span>
+              </div>
+            </div>
+
+            <div class="kv">
+              <div class="kvRow">
+                <b>Հեռախոս</b>
+                <a href="tel:+37494400089">+374 94 400 089</a>
+              </div>
+              <div class="kvRow">
+                <b>Էլ. հասցե</b>
+                <a href="mailto:natali.poghosyan.1981@gmail.com">natali.poghosyan.1981@gmail.com</a>
+              </div>
+              <div class="kvRow">
+                <b>Ֆորմատ</b>
+                <span>Օնլայն / Անհատական</span>
+              </div>
+            </div>
+
+            <div class="badgeRow">
+              <span class="pill">🤍 Ապահով միջավայր</span>
+              <span class="pill">🧩 Հստակ կառուցվածք</span>
+              <span class="pill">🔒 Գաղտնիություն</span>
+            </div>
+          </div>
+
+          <div class="softCard">
+            <h3 style="margin:0 0 8px; font-size:15px;">Ինչի դեպքում կարող եմ օգնել</h3>
+            <ul class="list" style="margin:0;">
+              <li>Անհանգստություն, սթրես, հոգնածություն</li>
+              <li>Ինքնագնահատական, ինքնավստահություն</li>
+              <li>Հարաբերություններ՝ զույգ, ընտանիք, սահմաններ</li>
+              <li>Կյանքի փոփոխություններ, նոր փուլեր, որոշումներ</li>
+              <li>Կանանց հոգեբանական ինքնազգացողություն՝ առօրյա ծանրաբեռնվածության մեջ</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- TRUST / HIGHLIGHTS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="card tile" style="padding:18px;">
+        <div class="grid3">
+          <div class="softCard">
+            <h3>Վստահելիություն</h3>
+            <p>Աշխատանքի հիմքը՝ հարգանք, գաղտնիություն և համագործակցային գործընթաց։</p>
+          </div>
+          <div class="softCard">
+            <h3>Պարզ ու գործնական</h3>
+            <p>Քայլ առ քայլ կկառուցենք այն հմտությունները, որոնք պետք են հենց քո կյանքում։</p>
+          </div>
+          <div class="softCard">
+            <h3>Կանանց և աղջիկների կարիքներին համապատասխան</h3>
+            <p>Զգայուն մոտեցում՝ ինքնարժեք, սահմաններ, հարաբերություններ, սթրեսի կառավարում։</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="wrap">
+      <h2>Ծառայություններ</h2>
+      <p class="lead">
+        Ընտրիր ֆորմատը՝ ըստ քո նպատակի։ Եթե վստահ չես, գրիր ինձ՝ միասին կընտրենք ամենահարմար տարբերակը։
+      </p>
+
+      <div class="pricing">
+        <div class="card priceCard">
+          <div class="top">
+            <div>
+              <h3>Անհատական հանդիպում</h3>
+              <div class="small">50–60 րոպե • օնլայն կամ առկա</div>
+            </div>
+            <div class="tag">Ամենահայտնի</div>
+          </div>
+          <div class="price">Գին՝ ըստ պայմանավորվածության</div>
+          <ul class="list">
+            <li>Մեկ խնդիր/նպատակ՝ հստակեցում</li>
+            <li>Զգացողությունների կարգավորում</li>
+            <li>Գործնական քայլեր՝ հաջորդ շաբաթվա համար</li>
+          </ul>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#contact">Ամրագրել</a>
+            <a class="btn" href="tel:+37494400089">Զանգել</a>
+          </div>
+        </div>
+
+        <div class="card priceCard">
+          <div class="top">
+            <div>
+              <h3>Աջակցություն հարաբերություններում</h3>
+              <div class="small">50–60 րոպե • սահմաններ, հաղորդակցություն</div>
+            </div>
+            <div class="tag">Թեմատիկ</div>
+          </div>
+          <div class="price">Գին՝ ըստ պայմանավորվածության</div>
+          <ul class="list">
+            <li>Սահմանների կառուցում առանց մեղքի զգացման</li>
+            <li>Հաղորդակցություն՝ առանց կոնֆլիկտի սրացման</li>
+            <li>Ինքնարժեք և ընտրությունների հստակություն</li>
+          </ul>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#contact">Գրել</a>
+            <a class="btn" href="#approach">Իմ մոտեցումը</a>
+          </div>
+        </div>
+
+        <div class="card priceCard">
+          <div class="top">
+            <div>
+              <h3>Սթրես / անհանգստություն</h3>
+              <div class="small">50–60 րոպե • ինքնակարգավորում</div>
+            </div>
+            <div class="tag">Գործնական</div>
+          </div>
+          <div class="price">Գին՝ ըստ պայմանավորվածության</div>
+          <ul class="list">
+            <li>Սթրեսի «տրիգերների» ճանաչում</li>
+            <li>Կարգավորման տեխնիկաներ (շնչառություն, ուշադրություն, ռեսուրս)</li>
+            <li>Օրակարգ և էներգիայի կառավարում</li>
+          </ul>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#contact">Ամրագրել</a>
+            <a class="btn" href="#faq">ՀՏՀ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="noteBox" style="margin-top:14px;">
+        <b>🆓 Անվճար առաջին զանգ/զրույց (10–15 րոպե)</b> — կքննարկենք խնդիրը, նպատակները և կպայմանավորվենք հաջորդ քայլերի մասին։
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <div class="grid2">
+        <div class="card tile">
+          <h2>Իմ մասին</h2>
+          <p class="lead" style="margin-bottom:10px;">
+            Ես՝ <b>Նատալի Պողոսյան</b>, հոգեբան եմ։ Աշխատում եմ կանանց և աղջիկների հետ՝ օգնելով հաղթահարել
+            անհանգստությունը, սթրեսը, ինքնագնահատականի անկումը և հարաբերությունների դժվարությունները։
+          </p>
+          <div class="softCard">
+            <h3 style="margin:0 0 8px;">Կրթություն</h3>
+            <ul class="list">
+              <li>Երևանի պետական համալսարան — <b>Հոգեբանություն (Մագիստրատուրա)</b>, 2022–2024</li>
+            </ul>
+          </div>
+
+          <div class="softCard" style="margin-top:12px;">
+            <h3 style="margin:0 0 8px;">Լեզուներ</h3>
+            <ul class="list">
+              <li>Հայերեն — գերազանց</li>
+              <li>Ռուսերեն — գերազանց</li>
+              <li>Անգլերեն — լավ</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card tile">
+          <h2>Ովքեր են հիմնականում դիմում</h2>
+          <p class="lead">
+            Կանանց և աղջիկների համար ստեղծում եմ հանգիստ ու ընդունող միջավայր՝ առանց դատելու։
+          </p>
+          <div class="grid3" style="grid-template-columns:1fr; gap:12px;">
+            <div class="softCard">
+              <h3>Աղջիկներ և երիտասարդ կանայք</h3>
+              <p>ինքնագնահատական, ինքնավստահություն, ընտրություններ, հարաբերություններ, նոր փուլեր։</p>
+            </div>
+            <div class="softCard">
+              <h3>Ծանրաբեռնված առօրյա ունեցող կանայք</h3>
+              <p>սթրես, հոգնածություն, «ամեն ինչի չեմ հասցնում» վիճակ, սահմանների խնդիր։</p>
+            </div>
+            <div class="softCard">
+              <h3>Փոփոխությունների փուլում</h3>
+              <p>նոր աշխատանք, տեղափոխություն, բաժանում, անձնական վերագնահատում, նպատակների հստակեցում։</p>
+            </div>
+          </div>
+
+          <div class="noteBox" style="margin-top:12px;">
+            <b>Կարևոր․</b> Եթե դու զգում ես, որ պետք է մասնագիտական աջակցություն՝ նույնիսկ “փոքր” հարցով,
+            դա արդեն բավարար պատճառ է՝ խոսելու և պարզելու։
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" class="section">
+    <div class="wrap">
+      <h2>Ինչպես ենք աշխատում</h2>
+      <p class="lead">
+        Աշխատանքն ունի հստակ կառուցվածք, բայց միշտ հարմարեցվում է քո տեմպին ու նպատակներին։
+      </p>
+
+      <div class="grid3">
+        <div class="card tile">
+          <h3>1) Ծանոթացում և նպատակ</h3>
+          <p>Սովորաբար սկսում ենք խնդրի հստակեցումից և այն նպատակից, որին ուզում ես հասնել։</p>
+        </div>
+        <div class="card tile">
+          <h3>2) Հասկացում և կարգավորում</h3>
+          <p>Ուսումնասիրում ենք զգացողությունները, մտքերը, պահվածքի օրինաչափությունները և աշխատում կարգավորման վրա։</p>
+        </div>
+        <div class="card tile">
+          <h3>3) Գործնական քայլեր</h3>
+          <p>Յուրաքանչյուր փուլում կունենաս գործնական քայլեր՝ որպեսզի փոփոխությունը լինի իրական կյանքում, ոչ միայն խոսքում։</p>
+        </div>
+      </div>
+
+      <div class="noteBox" style="margin-top:14px;">
+        <b>Գաղտնիություն.</b> Խորհրդատվության ընթացքում քննարկվող տեղեկատվությունը պահպանում է գաղտնիություն՝
+        էթիկական նորմերի շրջանակում։
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="wrap">
+      <h2>ՀՏՀ</h2>
+      <p class="lead">Ամենահաճախ տրվող հարցերը՝ պարզ ու հստակ պատասխաններով։</p>
+
+      <div class="faq">
+        <details>
+          <summary>Որքա՞ն է տևում հանդիպումը</summary>
+          <p>Սովորաբար՝ 50–60 րոպե։ Առաջին ծանոթացում-զրույցը՝ 10–15 րոպե (անվճար)։</p>
+        </details>
+
+        <details>
+          <summary>Օնլա՞յն եք աշխատում, թե՞ առկա</summary>
+          <p>Կարող ենք կազմակերպել ինչպես օնլայն, այնպես էլ առկա հանդիպում՝ ըստ պայմանավորվածության։</p>
+        </details>
+
+        <details>
+          <summary>Ինչպե՞ս ամրագրել հանդիպում</summary>
+          <p>Գրիր էլ. փոստով կամ զանգիր։ Կարող ես նաև ներքևի ձևով ուղարկել հաղորդագրություն։</p>
+        </details>
+
+        <details>
+          <summary>Առաջին այցը անվճա՞ր է</summary>
+          <p>Առաջարկում եմ անվճար կարճ ծանոթացում-զրույց (10–15 րոպե), որպեսզի հասկանանք՝ ինչպես կարող ենք աշխատել։</p>
+        </details>
+
+        <details>
+          <summary>Կայքում նշվածը բժշկական խորհրդատվությո՞ւն է</summary>
+          <p>Ոչ։ Սա հոգեբանական աջակցություն է և չի փոխարինում բժշկական ախտորոշմանը կամ բուժմանը։</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="wrap">
+      <div class="grid2">
+        <div class="card tile">
+          <h2>Կապ</h2>
+          <p class="lead">Գրիր կամ զանգիր՝ և կպատասխանեմ հնարավորինս արագ։</p>
+
+          <div class="softCard">
+            <div class="kvRow">
+              <b>Հեռախոս</b>
+              <a href="tel:+37494400089">+374 94 400 089</a>
+            </div>
+            <div class="kvRow" style="margin-top:10px;">
+              <b>Էլ. հասցե</b>
+              <a href="mailto:natali.poghosyan.1981@gmail.com">natali.poghosyan.1981@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="miniNote" style="margin-top:12px;">
+            <b>Խորհուրդ.</b> Եթե առաջին անգամ ես դիմում, կարող ես գրել 2–3 նախադասությամբ՝
+            ինչն է հիմա ամենաշատը անհանգստացնում, և ինչից կուզես ազատվել կամ ինչին հասնել։
+          </div>
+        </div>
+
+        <div class="card tile">
+          <h2>Արագ հաղորդագրություն</h2>
+          <p class="lead">Այս ձևը ուղարկում է նամակ քո էլ. փոստին (բացվում է Mail app)։</p>
+
+          <form id="contactForm" class="softCard" onsubmit="return sendEmail(event)">
+            <label class="small" for="name">Անուն</label><br>
+            <input id="name" required placeholder="Օր․ Անի" style="width:100%; padding:12px 12px; margin:6px 0 12px; border-radius:14px; border:1px solid var(--line); outline:none;"><br>
+
+            <label class="small" for="topic">Թեմա</label><br>
+            <input id="topic" required placeholder="Օր․ Անհանգստություն / հարաբերություններ" style="width:100%; padding:12px 12px; margin:6px 0 12px; border-radius:14px; border:1px solid var(--line); outline:none;"><br>
+
+            <label class="small" for="msg">Հաղորդագրություն</label><br>
+            <textarea id="msg" required rows="5" placeholder="Գրիր 2–6 նախադասությամբ…" style="width:100%; padding:12px 12px; margin:6px 0 12px; border-radius:14px; border:1px solid var(--line); outline:none; resize:vertical;"></textarea>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn primary" type="submit" style="cursor:pointer;">Ուղարկել</button>
+              <a class="btn" href="mailto:natali.poghosyan.1981@gmail.com">Բացել էլ. փոստը</a>
+            </div>
+
+            <p class="small" style="margin:12px 0 0;">
+              Եթե կոճակը չաշխատի, պարզապես ուղարկիր նամակ՝ <b>natali.poghosyan.1981@gmail.com</b> հասցեին։
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="cols">
+        <div class="noteBox">
+          <b>Զգուշացում (Disclaimer)</b><br>
+          Այս կայքի տեղեկատվությունը նախատեսված է ընդհանուր իրազեկման համար և չի հանդիսանում բժշկական կամ շտապ օգնության ծառայություն։
+          Եթե ունես հրատապ վտանգավոր իրավիճակ կամ շտապ օգնության կարիք՝ դիմիր համապատասխան շտապ ծառայություններին։
+        </div>
+
+        <div class="noteBox">
+          <b>Արագ հղումներ</b><br>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+            <a class="btn" href="#services">Ծառայություններ</a>
+            <a class="btn" href="#about">Իմ մասին</a>
+            <a class="btn" href="#contact">Կապ</a>
+          </div>
+          <div style="margin-top:12px;">
+            © <span id="year"></span> Նատալի Պողոսյան
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // "Send email" via mailto
+    function sendEmail(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const topic = document.getElementById('topic').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+
+      const to = "natali.poghosyan.1981@gmail.com";
+      const subject = encodeURIComponent("Ամրագրում / հարց — " + topic);
+      const body = encodeURIComponent(
+        "Անուն: " + name + "\n" +
+        "Թեմա: " + topic + "\n\n" +
+        "Հաղորդագրություն:\n" + msg + "\n\n" +
+        "Ուղարկված՝ կայքից"
+      );
+
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      return false;
+    }
+  </script>
 </body>
 </html>
