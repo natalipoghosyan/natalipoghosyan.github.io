@@ -1,1014 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beauty Fly | Tours & Hotels</title>
+<footer class="footer">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    .footer {
+      background: #0e1728;
+      color: #dbe5f4;
+      padding: 60px 20px 30px;
+      margin-top: 60px;
     }
 
-    :root {
-      --primary: #0a438b;
-      --primary-dark: #072f62;
-      --accent: #f6c343;
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #dbe3ef;
-      --shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
-      --radius: 20px;
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 30px;
+      align-items: start;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1200px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    /* Header */
-    .topbar {
+    /* LOGO BLOCK */
+    .footer-logo img {
+      width: 160px;
+      margin-bottom: 15px;
+      border-radius: 12px;
       background: #fff;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      padding: 6px;
     }
 
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      min-height: 72px;
+    .footer-logo p {
+      font-size: 14px;
+      color: #b8c4d6;
+      max-width: 280px;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--primary);
-      letter-spacing: 0.4px;
-    }
-
-    .nav {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .nav a {
-      font-size: 15px;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .nav a:hover {
-      color: var(--primary);
-    }
-
-    .nav-cta {
-      background: var(--primary);
-      color: #fff !important;
-      padding: 11px 18px;
-      border-radius: 999px;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 34px 0 26px;
-    }
-
-    .hero-wrap {
-      background:
-        linear-gradient(90deg, rgba(10,67,139,0.90), rgba(7,47,98,0.72)),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-      border-radius: 30px;
-      padding: 52px 34px 140px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-text {
-      max-width: 700px;
+    /* TITLES */
+    .footer h4 {
       color: #fff;
-    }
-
-    .hero-kicker {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.16);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 6vw, 58px);
-      line-height: 1.04;
-      margin-bottom: 16px;
-      font-weight: 800;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: rgba(255,255,255,0.92);
-      max-width: 620px;
-    }
-
-    /* Search card */
-    .search-card {
-      position: relative;
-      margin-top: -84px;
-      z-index: 5;
-    }
-
-    .search-box {
-      background: #fff;
-      border-radius: 26px;
-      padding: 20px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.14);
-      border: 1px solid #eef2f7;
-    }
-
-    .search-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .search-tab {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: #eef4fb;
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .search-tab.active {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .search-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 0.9fr auto;
-      gap: 14px;
-      align-items: end;
-    }
-
-    .field label {
-      display: block;
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-
-    .field input,
-    .field select {
-      width: 100%;
-      height: 52px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      padding: 0 16px;
-      font-size: 15px;
-      background: #fff;
-      outline: none;
-    }
-
-    .field input:focus,
-    .field select:focus {
-      border-color: var(--primary);
-    }
-
-    .search-btn {
-      height: 52px;
-      border: 0;
-      border-radius: 14px;
-      background: var(--accent);
-      color: #111827;
-      font-weight: 800;
-      padding: 0 22px;
-      cursor: pointer;
-      font-size: 15px;
-    }
-
-    /* mini info */
-    .benefits {
-      padding: 18px 0 8px;
-    }
-
-    .benefits-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .benefit {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .benefit strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 15px;
-    }
-
-    .benefit span {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* sections */
-    .section {
-      padding: 58px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: end;
-      margin-bottom: 22px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.08;
-      margin-bottom: 6px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      max-width: 720px;
-    }
-
-    .link-more {
-      color: var(--primary);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    /* cards */
-    .cards-3,
-    .cards-4 {
-      display: grid;
-      gap: 18px;
-    }
-
-    .cards-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .cards-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 38px rgba(17, 24, 39, 0.12);
-    }
-
-    .card-media {
-      position: relative;
-      height: 230px;
-      overflow: hidden;
-    }
-
-    .card-media img {
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .tag {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: #fff;
-      color: var(--primary);
-      font-size: 12px;
-      font-weight: 800;
-      padding: 8px 10px;
-      border-radius: 999px;
-    }
-
-    .discount {
-      position: absolute;
-      bottom: 14px;
-      left: 14px;
-      background: var(--accent);
-      color: #111827;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 8px 10px;
-      border-radius: 999px;
-    }
-
-    .card-body {
-      padding: 18px;
-    }
-
-    .card-title {
-      font-size: 22px;
-      margin-bottom: 8px;
-      font-weight: 800;
-    }
-
-    .card-text {
-      color: var(--muted);
-      font-size: 14px;
       margin-bottom: 14px;
-      min-height: 42px;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .meta span {
-      background: #f3f6fb;
-      padding: 7px 10px;
-      border-radius: 999px;
-    }
-
-    .card-bottom {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .price small {
-      display: block;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .price strong {
-      font-size: 22px;
-      color: var(--primary);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .btn-outline {
-      border: 1px solid var(--border);
-      color: var(--text);
-      background: #fff;
-    }
-
-    /* promo */
-    .promo-banner {
-      background: linear-gradient(135deg, #fff6da, #fde8a3);
-      border-radius: 28px;
-      padding: 28px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: center;
-      border: 1px solid #f2df95;
-    }
-
-    .promo-banner h3 {
-      font-size: clamp(28px, 4vw, 38px);
-      line-height: 1.08;
-      margin-bottom: 10px;
-    }
-
-    .promo-banner p {
-      color: #5f4c16;
-      margin-bottom: 16px;
       font-size: 16px;
     }
 
-    .promo-box {
-      background: rgba(255,255,255,0.65);
-      border-radius: 22px;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.55);
-    }
-
-    .promo-box ul {
-      padding-left: 18px;
-      color: #5f4c16;
-    }
-
-    .promo-box li + li {
-      margin-top: 8px;
-    }
-
-    /* footer */
-    .footer {
-      margin-top: 30px;
-      background: #0e1728;
-      color: #dbe5f4;
-      padding: 54px 0 28px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
-      gap: 24px;
-    }
-
-    .footer h4 {
-      color: #fff;
-      font-size: 17px;
-      margin-bottom: 14px;
-    }
-
-    .footer p,
-    .footer a {
-      color: #c8d3e4;
-      font-size: 14px;
-    }
-
+    /* LINKS */
     .footer-links {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 10px;
     }
 
+    .footer-links a {
+      color: #cbd5e1;
+      font-size: 14px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    /* SOCIAL */
+    .social {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .social a {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #1f2a44;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* BOTTOM */
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 28px;
-      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 30px;
+      padding-top: 15px;
+      text-align: center;
       font-size: 13px;
       color: #9fb0c9;
     }
 
-    @media (max-width: 1100px) {
-      .search-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .cards-4 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-grid,
-      .promo-banner,
-      .benefits-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 767px) {
-      .topbar-inner {
-        padding: 12px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav {
-        gap: 12px;
-      }
-
-      .hero-wrap {
-        padding: 36px 20px 110px;
-        border-radius: 24px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .search-card {
-        margin-top: -68px;
-      }
-
-      .search-box {
-        padding: 16px;
-        border-radius: 22px;
-      }
-
-      .search-grid,
-      .cards-3,
-      .cards-4,
-      .footer-grid,
-      .promo-banner,
-      .benefits-row {
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .footer-container {
         grid-template-columns: 1fr;
       }
 
-      .section {
-        padding: 44px 0;
-      }
-
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .card-media {
-        height: 215px;
-      }
-
-      .footer {
-        padding-top: 40px;
+      .footer-logo img {
+        width: 140px;
       }
     }
   </style>
-</head>
-<body>
 
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a href="#" class="logo">Beauty Fly</a>
+  <div class="footer-container">
 
-      <nav class="nav">
-        <a href="#tours">Hot Tours</a>
-        <a href="#hotels">Partner Hotels</a>
-        <a href="#deals">Deals</a>
-        <a href="#about">Why Us</a>
-        <a href="#contact" class="nav-cta">Book Now</a>
-      </nav>
+    <!-- LOGO SECTION -->
+    <div class="footer-logo">
+      <img src="https://cdn.shopify.com/s/files/1/0813/0655/0484/files/c4bfed0503fa57b985bc0d030d5f2d06.jpg?v=1771269532" alt="Beauty Fly Logo">
+      <p>
+        Beauty Fly — your trusted travel partner for tours, hotels, and unforgettable experiences worldwide.
+      </p>
     </div>
-  </header>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-wrap">
-        <div class="hero-text">
-          <span class="hero-kicker">Packages • Hotels • Flights • Experiences</span>
-          <h1>Plan your next trip with Beauty Fly</h1>
-          <p>
-            Discover hot tours, trusted partner hotels, and ready-made travel packages in one place.
-            Choose your destination, compare options, and book faster.
-          </p>
-        </div>
+    <!-- LINKS -->
+    <div>
+      <h4>Explore</h4>
+      <div class="footer-links">
+        <a href="#">Hot Tours</a>
+        <a href="#">Partner Hotels</a>
+        <a href="#">Travel Deals</a>
+        <a href="#">Packages</a>
       </div>
     </div>
-  </section>
 
-  <section class="search-card">
-    <div class="container">
-      <div class="search-box">
-        <div class="search-tabs">
-          <span class="search-tab active">Packages</span>
-          <span class="search-tab">Tours</span>
-          <span class="search-tab">Hotels</span>
-          <span class="search-tab">Flights</span>
-          <span class="search-tab">Transfers</span>
-        </div>
-
-        <div class="search-grid">
-          <div class="field">
-            <label>Destination</label>
-            <input type="text" placeholder="Where do you want to go?" />
-          </div>
-
-          <div class="field">
-            <label>Check-in</label>
-            <input type="date" />
-          </div>
-
-          <div class="field">
-            <label>Check-out</label>
-            <input type="date" />
-          </div>
-
-          <div class="field">
-            <label>Travelers</label>
-            <select>
-              <option>2 Travelers</option>
-              <option>1 Traveler</option>
-              <option>3 Travelers</option>
-              <option>4+ Travelers</option>
-            </select>
-          </div>
-
-          <button class="search-btn">Search</button>
-        </div>
+    <!-- CONTACT -->
+    <div>
+      <h4>Contact</h4>
+      <div class="footer-links">
+        <a href="mailto:info@beautyfly.com">info@beautyfly.com</a>
+        <a href="#">+374 00 00 00 00</a>
+        <a href="#">Yerevan, Armenia</a>
       </div>
     </div>
-  </section>
 
-  <section class="benefits">
-    <div class="container">
-      <div class="benefits-row">
-        <div class="benefit">
-          <strong>Bundle & save</strong>
-          <span>Combine hotel, flight, and tour in one easy booking.</span>
-        </div>
-        <div class="benefit">
-          <strong>Top partner hotels</strong>
-          <span>Stay with trusted hotels selected by our travel team.</span>
-        </div>
-        <div class="benefit">
-          <strong>Flexible packages</strong>
-          <span>Choose quick escapes, luxury stays, or family vacations.</span>
-        </div>
-        <div class="benefit">
-          <strong>Exclusive deals</strong>
-          <span>Access seasonal offers and limited hot-tour prices.</span>
-        </div>
+    <!-- SOCIAL -->
+    <div>
+      <h4>Follow us</h4>
+      <div class="social">
+        <a href="#">IG</a>
+        <a href="#">FB</a>
+        <a href="#">TG</a>
       </div>
     </div>
-  </section>
 
-  <section class="section" id="deals">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Hot travel deals</h2>
-          <p>Inspired by the package-first, deal-focused structure used on Expedia-style travel pages.</p>
-        </div>
-        <a href="#" class="link-more">See all deals</a>
-      </div>
+  </div>
 
-      <div class="cards-4">
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80" alt="Dubai package">
-            <span class="tag">Flight + Hotel</span>
-            <span class="discount">Save 20%</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Dubai Escape</h3>
-            <p class="card-text">Luxury city break with hotel stay, airport transfer and optional tours.</p>
-            <div class="meta">
-              <span>4 nights</span>
-              <span>Breakfast</span>
-              <span>Top rated</span>
-            </div>
-            <div class="card-bottom">
-              <div class="price">
-                <small>from</small>
-                <strong>$899</strong>
-              </div>
-              <a href="#" class="btn btn-primary">View Deal</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?auto=format&fit=crop&w=1200&q=80" alt="Paris package">
-            <span class="tag">City Tour</span>
-            <span class="discount">Limited offer</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Paris Getaway</h3>
-            <p class="card-text">Elegant weekend package with boutique hotel and city sightseeing.</p>
-            <div class="meta">
-              <span>3 nights</span>
-              <span>Central hotel</span>
-              <span>Best seller</span>
-            </div>
-            <div class="card-bottom">
-              <div class="price">
-                <small>from</small>
-                <strong>$760</strong>
-              </div>
-              <a href="#" class="btn btn-primary">View Deal</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80" alt="Maldives package">
-            <span class="tag">Beach Package</span>
-            <span class="discount">Member favorite</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Maldives Dream</h3>
-            <p class="card-text">Beachfront resort stay for travelers looking for a premium escape.</p>
-            <div class="meta">
-              <span>5 nights</span>
-              <span>Sea view</span>
-              <span>Luxury</span>
-            </div>
-            <div class="card-bottom">
-              <div class="price">
-                <small>from</small>
-                <strong>$1,490</strong>
-              </div>
-              <a href="#" class="btn btn-primary">View Deal</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=80" alt="Italy package">
-            <span class="tag">Romantic Tour</span>
-            <span class="discount">Early booking</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Italy Highlights</h3>
-            <p class="card-text">A beautiful package with iconic places, comfortable stay and free time.</p>
-            <div class="meta">
-              <span>6 nights</span>
-              <span>Breakfast</span>
-              <span>Popular</span>
-            </div>
-            <div class="card-bottom">
-              <div class="price">
-                <small>from</small>
-                <strong>$1,050</strong>
-              </div>
-              <a href="#" class="btn btn-primary">View Deal</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="tours">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Hot tours</h2>
-          <p>Use this area for your best-selling tours, last-minute packages, or seasonal destinations.</p>
-        </div>
-        <a href="#" class="link-more">Explore tours</a>
-      </div>
-
-      <div class="cards-3">
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80" alt="Santorini">
-            <span class="tag">Summer favorite</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Santorini Tour</h3>
-            <p class="card-text">Perfect for couples and summer travelers looking for beautiful sea views.</p>
-            <div class="card-bottom">
-              <div class="price">
-                <small>starting at</small>
-                <strong>$820</strong>
-              </div>
-              <a href="#" class="btn btn-outline">Details</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80" alt="Egypt">
-            <span class="tag">Culture trip</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Egypt Discovery</h3>
-            <p class="card-text">A tour package with history, sightseeing, and comfortable partner stays.</p>
-            <div class="card-bottom">
-              <div class="price">
-                <small>starting at</small>
-                <strong>$690</strong>
-              </div>
-              <a href="#" class="btn btn-outline">Details</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80" alt="Bali">
-            <span class="tag">Relax trip</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Bali Escape</h3>
-            <p class="card-text">A relaxing package for travelers who want tropical nature and comfort.</p>
-            <div class="card-bottom">
-              <div class="price">
-                <small>starting at</small>
-                <strong>$970</strong>
-              </div>
-              <a href="#" class="btn btn-outline">Details</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="promo-banner">
-        <div>
-          <h3>Save more when you book a package</h3>
-          <p>
-            Expedia highlights bundled bookings and member-style deals across its official travel pages,
-            so this section gives your website the same strong sales logic. :contentReference[oaicite:1]{index=1}
-          </p>
-          <a href="#" class="btn btn-primary">See package offers</a>
-        </div>
-
-        <div class="promo-box">
-          <ul>
-            <li>Flight + hotel combinations</li>
-            <li>Special prices for selected destinations</li>
-            <li>Easy section for seasonal campaign banners</li>
-            <li>Good place for promo codes or member offers</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="hotels">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Partner hotels</h2>
-          <p>Clean hotel cards similar to large travel booking websites, ideal for showcasing trusted hotel partners.</p>
-        </div>
-        <a href="#" class="link-more">See all hotels</a>
-      </div>
-
-      <div class="cards-3">
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="Hotel one">
-            <span class="tag">5-star partner</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Azure Beach Resort</h3>
-            <p class="card-text">Elegant beachfront stay with premium rooms, spa, and sunset dining.</p>
-            <div class="meta">
-              <span>9.2 rating</span>
-              <span>Spa</span>
-              <span>Sea view</span>
-            </div>
-            <div class="card-bottom">
-              <div class="price">
-                <small>per night from</small>
-                <strong>$210</strong>
-              </div>
-              <a href="#" class="btn btn-outline">See hotel</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80" alt="Hotel two">
-            <span class="tag">City center</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Grand Palace Hotel</h3>
-            <p class="card-text">Great option for city trips, shopping weekends, and business travel.</p>
-            <div class="meta">
-              <span>8.9 rating</span>
-              <span>Breakfast</span>
-              <span>Central</span>
-            </div>
-            <div class="card-bottom">
-              <div class="price">
-                <small>per night from</small>
-                <strong>$145</strong>
-              </div>
-              <a href="#" class="btn btn-outline">See hotel</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <img src="https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?auto=format&fit=crop&w=1200&q=80" alt="Hotel three">
-            <span class="tag">Nature stay</span>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Mountain Retreat</h3>
-            <p class="card-text">A calm partner hotel for nature-focused packages and relaxing holidays.</p>
-            <div class="meta">
-              <span>9.0 rating</span>
-              <span>Pool</span>
-              <span>Quiet area</span>
-            </div>
-            <div class="card-bottom">
-              <div class="price">
-                <small>per night from</small>
-                <strong>$128</strong>
-              </div>
-              <a href="#" class="btn btn-outline">See hotel</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
-    <div class="container">
-      <div class="promo-banner" style="background: linear-gradient(135deg, #edf4ff, #dbeafe); border-color: #cfe0fb;">
-        <div>
-          <h3>Why this structure works</h3>
-          <p style="color:#31435f;">
-            Expedia’s official pages center the experience around search, bundled packages, destination discovery,
-            and trusted offers. That makes this structure strong for a travel agency homepage too. :contentReference[oaicite:2]{index=2}
-          </p>
-        </div>
-
-        <div class="promo-box" style="background: rgba(255,255,255,0.72);">
-          <ul style="color:#31435f;">
-            <li>First screen immediately shows booking intent</li>
-            <li>Tabs help users browse by service type</li>
-            <li>Deals section pushes conversions fast</li>
-            <li>Hotels and tours are separated clearly</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h4>Beauty Fly</h4>
-          <p>Your stylish travel agency for tours, hotel partners, and vacation packages.</p>
-        </div>
-
-        <div>
-          <h4>Explore</h4>
-          <div class="footer-links">
-            <a href="#tours">Hot Tours</a>
-            <a href="#hotels">Partner Hotels</a>
-            <a href="#deals">Deals</a>
-          </div>
-        </div>
-
-        <div>
-          <h4>Contact</h4>
-          <div class="footer-links">
-            <a href="mailto:info@beautyfly.com">info@beautyfly.com</a>
-            <a href="tel:+37400000000">+374 00 00 00 00</a>
-          </div>
-        </div>
-
-        <div>
-          <h4>Follow</h4>
-          <div class="footer-links">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">Telegram</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        © 2026 Beauty Fly. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+  <div class="footer-bottom">
+    © 2026 Beauty Fly. All rights reserved.
+  </div>
+</footer>
