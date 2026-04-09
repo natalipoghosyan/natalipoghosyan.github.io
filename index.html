@@ -1,1 +1,378 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauty Fly Tours</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fffaf7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff7eb3, #ffb347);
+      color: white;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #ff7eb3;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      margin: 8px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff4f97;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 70px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 16px;
+      color: #ff4f97;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #222;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: #666;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff4f97;
+      margin-bottom: 14px;
+    }
+
+    .hotel-badge {
+      display: inline-block;
+      background: #fff0f6;
+      color: #ff4f97;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .about {
+      background: #fff0f6;
+      border-radius: 22px;
+      padding: 50px 35px;
+      text-align: center;
+    }
+
+    .about h2 {
+      margin-bottom: 16px;
+      color: #ff4f97;
+      font-size: 34px;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      color: #555;
+      font-size: 17px;
+    }
+
+    footer {
+      background: #1f1f1f;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      font-size: 15px;
+      color: #ddd;
+    }
+
+    @media (max-width: 991px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      header {
+        padding: 16px 20px;
+      }
+
+      nav {
+        margin-top: 12px;
+        width: 100%;
+      }
+
+      nav a {
+        margin: 0 14px 0 0;
+        display: inline-block;
+        margin-top: 8px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 50px 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .card img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Beauty Fly</div>
+    <nav>
+      <a href="#tours">Hot Tours</a>
+      <a href="#hotels">Partner Hotels</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Your Next Dream Journey</h1>
+      <p>Luxury escapes, unforgettable destinations, and trusted partner hotels — all in one place with Beauty Fly.</p>
+      <a href="#tours" class="btn">See Hot Tours</a>
+      <a href="#hotels" class="btn">View Hotels</a>
+    </div>
+  </section>
+
+  <section id="tours">
+    <h2 class="section-title">Hot Tours</h2>
+    <p class="section-subtitle">Explore our most popular destinations and special travel packages carefully selected for unforgettable experiences.</p>
+
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Maldives Tour">
+        <div class="card-content">
+          <h3>Maldives Escape</h3>
+          <p>5 nights in a beachfront resort with breakfast, airport transfer, and island excursions.</p>
+          <div class="price">from $1,490</div>
+          <a href="#" class="btn">View Tour</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=80" alt="Paris Tour">
+        <div class="card-content">
+          <h3>Paris Getaway</h3>
+          <p>Romantic city break with central hotel stay, guided sightseeing, and optional experiences.</p>
+          <div class="price">from $890</div>
+          <a href="#" class="btn">View Tour</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Dubai Tour">
+        <div class="card-content">
+          <h3>Dubai Luxury Tour</h3>
+          <p>Modern luxury package with premium hotel options, desert safari, and city attractions.</p>
+          <div class="price">from $1,120</div>
+          <a href="#" class="btn">View Tour</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hotels">
+    <h2 class="section-title">Partner Hotels</h2>
+    <p class="section-subtitle">Stay with our trusted hotel partners and enjoy comfort, quality service, and exclusive travel deals.</p>
+
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" alt="Ocean View Resort">
+        <div class="card-content">
+          <span class="hotel-badge">5-Star Partner</span>
+          <h3>Ocean View Resort</h3>
+          <p>Elegant beachfront property with spa, premium rooms, and beautiful sunset views.</p>
+          <a href="#" class="btn">See Hotel</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80" alt="Grand Palace Hotel">
+        <div class="card-content">
+          <span class="hotel-badge">Luxury Stay</span>
+          <h3>Grand Palace Hotel</h3>
+          <p>Refined hospitality in the city center with modern comfort and premium amenities.</p>
+          <a href="#" class="btn">See Hotel</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?auto=format&fit=crop&w=900&q=80" alt="Mountain Retreat">
+        <div class="card-content">
+          <span class="hotel-badge">Nature Partner</span>
+          <h3>Mountain Retreat</h3>
+          <p>Peaceful getaway surrounded by nature, ideal for relaxing and scenic travel experiences.</p>
+          <a href="#" class="btn">See Hotel</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about">
+      <h2>Why Choose Beauty Fly?</h2>
+      <p>
+        Beauty Fly combines stylish travel experiences with trusted service. We help travelers discover the best tours,
+        book quality hotel partners, and enjoy a smooth journey from start to finish. Whether you want a luxury escape,
+        romantic city break, or relaxing holiday, our team is here to make it memorable.
+      </p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>Beauty Fly Travel Agency • Your journey starts here</p>
+    <p>Email: info@beautyfly.com | Phone: +000 123 456 789</p>
+  </footer>
+
+</body>
+</html>
